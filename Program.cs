@@ -13,24 +13,37 @@ namespace PracticaN1
         static void Main(string[] args)
         {
             //Crear distintos coleccionables de alumnos
-            Pila pila = new Pila();
-            Cola cola = new Cola();
-            Conjunto conjunto = new Conjunto();
+            //Pila pila = new Pila();
+            //Cola cola = new Cola();
+            //Conjunto conjunto = new Conjunto();
 
             //Agregar alumnos a los coleccionables
-            Helper.LlenarAlumnos(pila);
+            //Helper.LlenarAlumnos(pila);
             //Helper.LlenarAlumnos(cola);
             //Helper.LlenarAlumnos(conjunto);
             
-            Helper.Llenar(pila, 1);
+            //Helper.Llenar(pila, 1);
 
             //Imprimir los elementos de cada coleccionable
             //Console.WriteLine("Pila de alumnos");
             //Helper.imprimirElementos(pila);
             //Console.WriteLine();
 
+            Profesor profe = new Profesor("Mauro", 123456, 4);
+            Pila p = new Pila();
+            Helper.Llenar(p, 2);
+            Iterador ite = p.crearIterador();
+            ite.primero();
+            while (!ite.fin())
+            {
+                profe.agregarObservador((Observador)ite.actual());
+                ite.siguiente();
+            }
+            Helper.dictadoDeClases(profe);
 
-            Profesor profesor = new Profesor("Mauro", 1555445, 1554886);
+
+
+            /*Profesor profesor = new Profesor("Mauro", 1555445, 1554886);
 
             // Crear 20 alumnos y agregarlos como observadores
             for (int i = 1; i <= 20; i++)
@@ -38,7 +51,7 @@ namespace PracticaN1
                 Alumno alumno = new Alumno();
                 profesor.agregarObservador(alumno);
             }
-            Helper.dictadoDeClases(profesor);
+            Helper.dictadoDeClases(profesor);*/
 
             // Dictado de clases
             //Helper.dictadoDeClases(profesor);
